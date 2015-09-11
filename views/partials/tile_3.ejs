@@ -1,0 +1,11 @@
+<div class="row">
+<% for(var i=0; i<lists.length; i++) { %>
+	<div class="col-xs-6 col-lg-4">
+		<h2><%= lists[i].title %></h2>
+		<p><%= lists[i].description %></p>
+		<p>
+			<a class="btn btn-default" href="<%= lists[i].link %>" role="button">View details &raquo;</a>
+		</p>
+	</div>
+<% } %>
+</div>

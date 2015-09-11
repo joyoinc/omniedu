@@ -1,0 +1,9 @@
+
+
+
+<ul>
+  <li ng-repeat="x in courses | filter: courseFilter">
+    <h2><a href="#/course/{{ x.id }}">{{ x.title }} </a></h2>
+    <p><a href="#/course/{{ x.id }}">{{ x.desc }} </a></p>
+  </li>
+</ul>
