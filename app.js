@@ -33,12 +33,9 @@ app.configure('development', function(){
   app.locals.pretty = true;
 });
 
-var AWS_ACCESS_KEY = "AKIAJGZTZ3DLNWCX6LIA";
-var AWS_SECRET_KEY = "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";
-var S3_BUCKET = "omniedu-dev";
-console.log(AWS_ACCESS_KEY);
-console.log(AWS_SECRET_KEY);
-console.log(S3_BUCKET);
+var AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
+var AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
+var S3_BUCKET = process.env.S3_BUCKET;
 
 app.configure('production', function(){
   app.use(express.errorHandler());
@@ -53,30 +50,6 @@ app.post('/admin/upload', routes.doUpload);
 
 /* angular test */
 app.get('/aj', function(req, res){ res.render('aj'); });
-
-/* test code 
-var arys = [ 
-{"id":11632, "title":"CRO training : 1", "desc":"bbba", "src":"/assets/SampleVideo_1080x720_1mb.mp4"},
-{"id":11432, "title":"CRO training : 2", "desc":"bbba", "src":"/assets/SampleVideo_1080x720_2mb.mp4"},
-{"id":12132, "title":"CRO training : 3", "desc":"bbba", "src":"/assets/SampleVideo_1080x720_5mb.mp4"},
-
-{"id":32532, "title":"Blue shit training : 1", "desc":"bbba", "src":""},
-];
-app.get('/api/courses', function(req, res){ 
-	res.json(arys); 
-});
-app.get('/api/course/:id', function(req, res){ 
-	var courseId = req.param('id');
-	var result = null;
-	for(var i=0; i<arys.length; i++) {
-		if(arys[i].id == courseId) {
-			result = arys[i]; 
-			break;
-		}
-	}
-	res.json(result);
-});
-*/
 
 /* aws s3 */
 app.get('/sign_s3', function(req, res){

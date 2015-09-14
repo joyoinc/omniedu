@@ -25,7 +25,7 @@
     
   </head>
 
-  <body>
+  <body ng-controller="courseListCtrl">
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">
@@ -36,7 +36,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#" >{{lesson.title}}</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
@@ -58,7 +58,7 @@
 			<ul class="nav nav-sidebar">
 				<li class="list-group-item-info"><a href="#/overview">Overview </a></li>
 			</ul>
-			<ul class="nav nav-sidebar ng-cloak"  ng-controller="courseListCtrl">
+			<ul class="nav nav-sidebar ng-cloak" >
 				<li ng-repeat="x in courses | filter: courseFilter" courseId="{{x.id}}">
 					<a href="#/course/{{ x.course_id }}">{{ x.title }}</a>
 				</li>
